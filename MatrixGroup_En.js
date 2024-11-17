@@ -122,7 +122,6 @@ function show_data() {
         // console.log(table)
     }
     tbody.innerHTML = table
-    data.push(table)
 }
 // let index_num = document.getElementById("index_num");
 // console.log(index_num)
