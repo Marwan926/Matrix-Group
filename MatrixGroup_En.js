@@ -24,7 +24,6 @@ let password = "3791"
 
 
 
-let secound_data = [];
 let data;;
 if (localStorage.Vocabulers != null) {
     data = JSON.parse(localStorage.Vocabulers)
@@ -58,13 +57,13 @@ cancel_word.onclick = function () {
 password_cancel.onclick = function () {
     password_div.style.display = "none"
 }
-
+let data_push;
 function ifSource() {
     if (sound_source.value.includes("http") === false) {
         source_p.style.display = "block"
         }else {
             create_word.onclick = function () {
-                let data_push = {
+                 data_push = {
                     word:word.value,
                     spelling:spelling.value,
                     meaning:meaning.value,
@@ -87,6 +86,7 @@ function ifSource() {
         //     console.log("Not Media")
         // }
     }
+let secound_data = [data_push];
 // ifSource()
 // Display 
 function display() {
