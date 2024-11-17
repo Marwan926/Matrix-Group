@@ -24,7 +24,7 @@ let password = "3791"
 
 
 
-
+let secound_data = [];
 let data;;
 if (localStorage.Vocabulers != null) {
     data = JSON.parse(localStorage.Vocabulers)
@@ -76,6 +76,8 @@ function ifSource() {
                 show_data()
                 display()
                 clear()
+                secound_data.push(data_push)
+                data.push(secound_data)
                
             }
             
