@@ -30,6 +30,7 @@ if (localStorage.Vocabulers != null) {
 }else {
     data = []
 }
+
 // create_word.onclick = function () {
 //     let data_push = {
 //         word:word.value,
@@ -57,36 +58,47 @@ cancel_word.onclick = function () {
 password_cancel.onclick = function () {
     password_div.style.display = "none"
 }
+//=====================
 let data_push;
+let secound_data;
+if ( data != null) {
+    secound_data = data
+}else {
+    secound_data = []
+}
+// ====================
 function ifSource() {
     if (sound_source.value.includes("http") === false) {
         source_p.style.display = "block"
         }else {
             create_word.onclick = function () {
-                 data_push = {
+                    data_push = {
                     word:word.value,
                     spelling:spelling.value,
                     meaning:meaning.value,
                     sound_src:sound_source.value
-                }
+                }        
                 data.push(data_push)
+                tbody.innerHTML  = data_push
                 localStorage.setItem("Vocabulers"  , JSON.stringify(data))
                 console.log(data_push);
                 show_data()
                 display()
                 clear()
                 secound_data.push(data_push)
-                data.push(secound_data)
-               
+                console.log(secound_data)
+                // data.push(secound_data)
             }
             
+            // let secound_data = [data_push];
         }
+        // secound_data = data
+
         // console.log(sound_source.value.includes("http"))
         // if (sound_source.includes("http") = false){
         //     console.log("Not Media")
         // }
     }
-let secound_data = [data_push];
 // ifSource()
 // Display 
 function display() {
@@ -107,15 +119,15 @@ btn.onclick = function appear() {
 let tbody = document.getElementById("tbody");
 function show_data() {
     let table = ''
-    for(let i = 1 ; i < data.length ; i++) {
+    for(let i = 1 ; i < secound_data.length ; i++) {
         table += `
         <tr>
         <td id="indexs">${i}</td>
-        <td>${data[i].word}</td>
-        <td>${data[i].spelling}</td>
-        <td>${data[i].meaning}</td>
+        <td>${secound_data[i].word}</td>
+        <td>${secound_data[i].spelling}</td>
+        <td>${secound_data[i].meaning}</td>
         <td id="add-audio"><audio controls>
-        <source src="${data[i].sound_src}" type="audio/mp3"> </audio></td>
+        <source src="${secound_data[i].sound_src}" type="audio/mp3"> </audio></td>
         <td id="du_td"><button onclick="update_item(${i})" class='du_btn' id="update_btn">Update</button></td>
         <td id="du_td"><button onclick="delete_item(${i})" class='du_btn' id="delete_btn">Delete</button></td> 
         </tr>
