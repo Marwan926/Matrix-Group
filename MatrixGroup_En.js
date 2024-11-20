@@ -79,13 +79,13 @@ function ifSource() {
                     sound_src:sound_source.value
                 }        
                 data.push(data_push)
-                tbody.innerHTML  = data_push
+                secound_data.push(data_push)
+                tbody.innerHTML  = secound_data
                 localStorage.setItem("Vocabulers"  , JSON.stringify(data))
                 console.log(data_push);
                 show_data()
                 display()
                 clear()
-                secound_data.push(data_push)
                 console.log(secound_data)
                 // data.push(secound_data)
             }
